@@ -1,0 +1,27 @@
+{
+  "name": "demo-backend",
+  "version": "v0.0.1",
+  "description": "Demo Backend",
+  "main": "manage.py",
+  "repository": "",
+  "author": "Vova Klochkov <v.evader@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "prepare_win": "virtualenv venv -p python.exe && ./venv/Scripts/activate && pip install -r ./requirements.txt",
+    "start": "./venv/Scripts/activate && python manage.py run",
+    "flake": "./venv/Scripts/activate && flake8 app/main --ignore=E501",
+    "codestyle": "./venv/Scripts/activate && pycodestyle app/main --ignore=E501",
+    "pylint": "pylint app/main --disable=R0903,W0703,W0613,R0913,E0401,R0801,R0914,R0915",
+    "test": "./venv/Scripts/activate && python manage.py test",
+    
+    "db_init": "./venv/Scripts/activate && flask db init",
+    "db_migrate": "./venv/Scripts/activate && flask db migrate",
+    "db_upgrade": "./venv/Scripts/activate && flask db upgrade",
+    "db_downgrade": "./venv/Scripts/activate && flask db downgrade"
+  }
+}
